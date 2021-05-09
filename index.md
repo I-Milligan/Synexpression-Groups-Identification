@@ -54,7 +54,4 @@ rawdata = rawdata.fillna(0)
 # need to capture row 0 into a list for mapping later as column names
 section_map = rawdata.columns.tolist()
 ```
-
-![image](https://github.com/I-Milligan/Synexpression-Groups-Identification/blob/gh-pages/LinePlot.png)
-
 <div><img src="LinePlot.png" class="img-responsive" alt=""> </div>
