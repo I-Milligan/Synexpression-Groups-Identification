@@ -1,6 +1,5 @@
-#Pearson Code
-##Test
-###Code
+# Pearson Correlation
+
 ```python
 ### Create Pearson Correlation 
 rawdataT = rawdata.T
