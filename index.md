@@ -1,30 +1,30 @@
-## Welcome to GitHub Pages
+# Synexpression Groups Identification
 
-You can use the [editor on GitHub](https://github.com/I-Milligan/Synexpression-groups-identification/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+## Introduction
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+Iris enter your Introduction here
 
-### Markdown
+### Pearson Correlation
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+**Libraries to Import**
+```python
+import pandas as pd
+import scipy
+from sklearn.metrics.pairwise import euclidean_distances
+from scipy.stats import pearsonr
+from scipy.spatial.distance import pdist, squareform
+import numpy as np
+import matplotlib.pyplot as plt
+from matplotlib.colors import rgb2hex, colorConverter
+from mpl_toolkits.mplot3d import Axes3D
 ```
+**Import Tomosite 10 data file and manipulate into Pandas DataFrames for use**
+-- Readin Input File
+```Python
+# Open File to Process
+rawdata = pd.read_table("TomoZF10ss.csv",delimiter = ',')
+```
+-- Manipulate Input for future processing
 ```python
 # Import external data
 # convert data type
@@ -52,12 +52,3 @@ rawdata = rawdata.fillna(0)
 # need to capture row 0 into a list for mapping later as column names
 section_map = rawdata.columns.tolist()
 ```
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/I-Milligan/Synexpression-groups-identification/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
