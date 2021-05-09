@@ -21,13 +21,15 @@ from mpl_toolkits.mplot3d import Axes3D
 
 **Import Tomosite 10 data file and manipulate into Pandas DataFrames for use**
 - Readin Input File
+
 ```python
 # Open File to Process
 rawdata = pd.read_table("TomoZF10ss.csv",delimiter = ',')
 ```
 
 - Manipulate Input for future processing
-`python
+
+```python
 # Import external data
 # convert data type
 
@@ -53,4 +55,4 @@ rawdata = rawdata.fillna(0)
 
 # need to capture row 0 into a list for mapping later as column names
 section_map = rawdata.columns.tolist()
-`
+```
