@@ -1,5 +1,3 @@
-# Synexpression Groups Identification
-
 ## Introduction
 
 Iris enter your Introduction here
