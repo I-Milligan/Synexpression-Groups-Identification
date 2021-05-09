@@ -71,8 +71,8 @@ APdata = APdata.loc[:,~APdata.columns.duplicated()]
 LRdata = LRdata.loc[:,~LRdata.columns.duplicated()]
 VDdata = VDdata.loc[:,~VDdata.columns.duplicated()]
 ```
-**Calculate the Pearson Correlation from the complete data set
 
+**Calculate the Pearson Correlation from the complete data set
 ```python
 ### Create Pearson Correlation 
 rawdataT = rawdata.T
