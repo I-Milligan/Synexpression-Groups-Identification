@@ -25,7 +25,7 @@ Syntax highlighted code block
 
 [Link](url) and ![Image](src)
 ```
-```jupyter
+```python
 # Import external data
 # convert data type
 
