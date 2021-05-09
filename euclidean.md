@@ -1,4 +1,4 @@
-## Pearson's Correlation
+## Euclidean Distance
 
 **Libraries to Import**
 ```python
@@ -53,6 +53,8 @@ section_map = rawdata.columns.tolist()
 - Breakout AP, VD and LR data Sets
 
 ```python
+# subset gene
+
 data = rawdata[rawdata.columns[0:51]]
 APdata = rawdata[rawdata.columns[0:52]]
 LRdata = rawdata[rawdata.columns[52:104]]
@@ -61,26 +63,28 @@ VDdata = rawdata[rawdata.columns[104:156]]
 # Rename Columns so they align for future plotting.
 LRdata.columns=APdata.columns
 VDdata.columns=APdata.columns
-
-#Remove Duplicate Columns
-APdata = APdata.loc[:,~APdata.columns.duplicated()]
-LRdata = LRdata.loc[:,~LRdata.columns.duplicated()]
-VDdata = VDdata.loc[:,~VDdata.columns.duplicated()]
 ```
 
-**Calculate the Pearson Correlation from the complete data set**
+**Calculate the Euclidean Distance from the complete data set**
 ```python
-### Create Pearson Correlation 
-rawdataT = rawdata.T
-pairwise = rawdataT.corr()
-pairwise.columns = gene_mapping['gene'].to_list()
-pairwise.index = gene_mapping['gene'].to_list()
+### Hieu's code
+## Z-normalization
+df_z_scaled = rawdata.copy()
+df_z_scaled = df_z_scaled.T
+for column in df_z_scaled.columns:
+    df_z_scaled[column] = (df_z_scaled[column] -
+                           df_z_scaled[column].mean()) / df_z_scaled[column].std()    
 
-# Specify Gene to look at
-geneID = "etv2"
+## Pairwise Euclidean distance 
+df_z_scaled = df_z_scaled.T
+pairwise = pd.DataFrame(
+squareform(pdist(df_z_scaled)),
+    columns = gene_mapping['gene'].to_list(),
+    index = gene_mapping['gene'].to_list()
+)
 #Testing on ENSDARG00000052402
-temp = pairwise[[geneID]]
-temp = temp.sort_values(by=geneID,ascending=False)
+temp = pairwise[["fgf17"]]
+temp = temp.sort_values(by='fgf17')
 print(temp.head(n=20))
 ```
 
