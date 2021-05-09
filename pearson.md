@@ -1,4 +1,4 @@
-## Pearson Correlation
+## Pearson's Correlation
 
 **Libraries to Import**
 ```python
