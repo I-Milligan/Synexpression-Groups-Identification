@@ -68,7 +68,7 @@ LRdata = LRdata.loc[:,~LRdata.columns.duplicated()]
 VDdata = VDdata.loc[:,~VDdata.columns.duplicated()]
 ```
 
-**Calculate the Pearson Correlation from the complete data set
+**Calculate the Pearson Correlation from the complete data set**
 ```python
 ### Create Pearson Correlation 
 rawdataT = rawdata.T
@@ -84,7 +84,7 @@ temp = temp.sort_values(by=geneID,ascending=False)
 print(temp.head(n=20))
 ```
 
-**Plot Single Gene across all 3 sections
+**Plot Single Gene across all 3 sections**
 ```python
 # Generate LinePlot to compare with SpatialDB
 ensemblID = gene_mapping.loc[gene_mapping['gene']==geneID]
@@ -126,3 +126,50 @@ plt.show()
 ```
 Image
 <div><img src="LinePlot.png" class="img-responsive" alt=""> </div>
+
+**Plot Top 10 Associated genese by distance By Section**
+- Code is replicated for each section AP, LR and VD
+```python
+# Generate LinePlot to compare with SpatialDB
+plotlist = temp.index.to_list()
+plotgenes = plotlist[:10]
+
+# Loop through list and build data for line plot
+i = 0
+APdata.index = gene_mapping['gene'].to_list()
+
+APdataT = APdata.T
+lineDF = pd.DataFrame(columns=APdata.columns)
+
+while i < 10:
+    geneID = plotgenes[i]
+    lineDF = lineDF.append(APdata.loc[geneID],ignore_index=False)
+    i = i+1    
+
+# Transpose ne DataFrame
+lineDFT = lineDF.T
+# Remove Duplicate Columns
+lineDFT = lineDFT.loc[:,~lineDFT.columns.duplicated()]
+# Set Labels
+lineDFT.columns=plotgenes
+
+# Set frequency of x tick marks
+p=0
+xticks_label = pd.DataFrame(columns=['label'])
+for col_num, value in enumerate(lineDFT.index.values):
+    if(col_num%2):
+        xticks_label.loc[p] = [value]
+        p=p+1
+        
+# Set Tick Labels        
+label_list = [1,3,5,7,9,11,13,15,17,19,21,23,25,27,29,31,33,35,37,39,41,43,45,47,49,51]
+lineDFT.plot(figsize=(20,10),grid=True,xticks=label_list, marker='o', ylabel="Expression Levels",title="fgf17 Cluster Expression Levels on AP")
+plt.show()
+```
+AP Image
+<div><img src="LinePlot.png" class="img-responsive" alt=""> </div>
+LR Image
+<div><img src="LinePlot.png" class="img-responsive" alt=""> </div>
+VD Image
+<div><img src="LinePlot.png" class="img-responsive" alt=""> </div>
+
