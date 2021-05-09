@@ -1,16 +1,17 @@
----
-layout: page
-title: About
-permalink: /about/
----
+#Pearson Code
+##Test
+###Code
+```python
+### Create Pearson Correlation 
+rawdataT = rawdata.T
+pairwise = rawdataT.corr()
+pairwise.columns = gene_mapping['gene'].to_list()
+pairwise.index = gene_mapping['gene'].to_list()
 
-## About
-
-WebJeda is a web designing company
-.
-.
-.
-
-**Disclaimer:** This website is under constant modification.
-If you find something isn't right then,
-I might be doing some change in the back-end.
+# Specify Gene to look at
+geneID = "etv2"
+#Testing on ENSDARG00000052402
+temp = pairwise[[geneID]]
+temp = temp.sort_values(by=geneID,ascending=False)
+print(temp.head(n=20))
+```
