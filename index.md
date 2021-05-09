@@ -25,7 +25,7 @@ Syntax highlighted code block
 
 [Link](url) and ![Image](src)
 ```
-```Jupyter Notebook
+```notebook
 # Import external data
 # convert data type
 
