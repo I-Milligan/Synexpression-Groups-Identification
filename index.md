@@ -1,7 +1,7 @@
 ## Introduction
 
 Iris enter your Introduction here
-
+{{ page.sections['pearson'] | textilize }}
 ### Pearson Correlation
 
 **Libraries to Import**
@@ -130,3 +130,5 @@ plt.show()
 ```
 Image
 <div><img src="LinePlot.png" class="img-responsive" alt=""> </div>
+
+{{ page.sections['euclidean'] | textilize }}
