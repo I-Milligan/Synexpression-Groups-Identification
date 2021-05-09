@@ -20,7 +20,7 @@ from mpl_toolkits.mplot3d import Axes3D
 ```
 **Import Tomosite 10 data file and manipulate into Pandas DataFrames for use**
 - Readin Input File
-```Python
+```python
 # Open File to Process
 rawdata = pd.read_table("TomoZF10ss.csv",delimiter = ',')
 ```
