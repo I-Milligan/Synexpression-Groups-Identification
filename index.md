@@ -24,6 +24,7 @@ from mpl_toolkits.mplot3d import Axes3D
 # Open File to Process
 rawdata = pd.read_table("TomoZF10ss.csv",delimiter = ',')
 ```
+
 - Manipulate Input for future processing
 ```python
 # Import external data
