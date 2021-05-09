@@ -133,6 +133,7 @@ Image
 
 **Plot Top 10 Associated genese by distance By Section**
 - Code is replicated for each section AP, LR and VD
+
 ```python
 # Generate LinePlot to compare with SpatialDB
 plotlist = temp.index.to_list()
