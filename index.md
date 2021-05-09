@@ -25,7 +25,7 @@ Syntax highlighted code block
 
 [Link](url) and ![Image](src)
 ```
-```
+```jupyter
 <script src="https://github.com/I-Milligan/Synexpression-Groups-Identification/blob/gh-pages/PearsonDistanceCalc.ipynb"></script>
 ```
 For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
