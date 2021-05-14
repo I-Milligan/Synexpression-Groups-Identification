@@ -11,6 +11,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.colors import rgb2hex, colorConverter
 from mpl_toolkits.mplot3d import Axes3D
+import seaborn as sns
 ```
 
 **Import Tomo-seq 10 data file and manipulate into Pandas DataFrames for use**
