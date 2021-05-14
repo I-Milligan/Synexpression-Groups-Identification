@@ -96,13 +96,13 @@ vd1 = pd.DataFrame(columns=APdata.columns)
 lensemb_value=ensemblID.index.values
 
 # Find gene in each of the 3 DataFrames
-lineDF=APdata.loc[lensemb_value,:]
-lr1=LRdata.loc[lensemb_value,:]
-vd1=VDdata.loc[lensemb_value,:]
+lineDF=lineDF.append(APdata.loc[geneID,:],ignore_index=True)
+lr1=lr1.append(LRdata.loc[geneID,:],ignore_index=True)
+vd1=vd1.append(VDdata.loc[geneID,:],ignore_index=True)
 
 # Now append results into 1 DataFrame
-lineDF=lineDF.append(lr1,ignore_index=False)
-lineDF=lineDF.append(vd1,ignore_index=False)
+lineDF=lineDF.append(lr1,ignore_index=True)
+lineDF=lineDF.append(vd1,ignore_index=True)
 
 # Transpose ne DataFrame
 lineDFT = lineDF.T
