@@ -51,7 +51,7 @@ rawdata = rawdata.fillna(0)
 # need to capture row 0 into a list for mapping later as column names
 section_map = rawdata.columns.tolist()
 ```
-- Breakout AP, VD and LR data Sets
+- Breakout AP, VD and LR data Axis
 
 ```python
 data = rawdata[rawdata.columns[0:51]]
@@ -86,7 +86,7 @@ print(temp.head(n=20))
 Results
 <div><img src="P-Data.png" class="img-responsive" alt="" width="150" height="250"> </div>
 
-**Plot Single Gene across all 3 sections
+**Plot Single Gene across all 3 axis
 ```python
 # Generate LinePlot to compare with SpatialDB
 ensemblID = gene_mapping.loc[gene_mapping['gene']==geneID]
@@ -130,7 +130,7 @@ Image
 <div><img src="LinePlot.png" class="img-responsive" alt=""> </div>
 
 **Plot Top 10 Associated genese by distance By Section**
-- Code is replicated for each section AP, LR and VD
+- Code is replicated for each axis AP, LR and VD
 
 ```python
 # Generate LinePlot to compare with SpatialDB
@@ -175,3 +175,90 @@ LR Image
 <div><img src="LRLinePlot.png" class="img-responsive" alt=""> </div>
 VD Image
 <div><img src="VDLinePlot.png" class="img-responsive" alt=""> </div>
+
+**Generate Heatmaps of the Top 10 Associated genese by distance By Section**
+- Code is replicated for each axis AP, LR and VD
+- The following Function will convert the Decimal Normalized data 1-10 to 0 to 90 for reporting
+```python
+#Label Gene Section 1-10 based on Quintile value
+def LabelFunc2(xvalue,icolumn):
+    if(xvalue<=quant.iloc[0][icolumn]): retvalue = "0"
+    elif(xvalue<=quant.iloc[1][icolumn]): retvalue = "10"
+    elif(xvalue<=quant.iloc[2][icolumn]): retvalue = "20"
+    elif(xvalue<=quant.iloc[3][icolumn]): retvalue = "30" 
+    elif(xvalue<=quant.iloc[4][icolumn]): retvalue = "40"
+    elif(xvalue<=quant.iloc[5][icolumn]): retvalue = "50" 
+    elif(xvalue<=quant.iloc[6][icolumn]): retvalue = "60"
+    elif(xvalue<=quant.iloc[7][icolumn]): retvalue = "70" 
+    elif(xvalue<=quant.iloc[8][icolumn]): retvalue = "80"
+    elif(xvalue<=quant.iloc[9][icolumn]): retvalue = "90" 
+    else: retvalue = "100"
+    return retvalue 
+```
+
+- The following Code is replicated for each axis AP, LR and VD
+```python
+# Generate New DataFrame from list of genes
+labelsArray = pd.DataFrame()
+plotlist = temp.index.to_list()
+geneList1 = plotlist[:10]
+#geneList1 = ['tgfb2','ptbp3','syngr2a','hoxc4a','NDUFA3','ost4','gltpa','slc1a7a','DHRS2','xrcc6bp1']
+
+# Create new DataFrame to hold values
+genePD1 = pd.DataFrame(columns=APdata.columns)
+lineDF = pd.DataFrame(columns=APdata.columns)
+firstline = True
+
+# Need to build dataframe from AP for heatmaps
+i = 0
+while i < 10:
+    geneIDList = geneList1[i]
+    lineDF = lineDF.append(APdata.loc[geneIDList],ignore_index=False)
+    i = i+1    
+
+# Transpose ne DataFrame
+lineDFT = lineDF.T
+# Remove Duplicate Columns
+lineDFT = lineDFT.loc[:,~lineDFT.columns.duplicated()]
+
+genePD1 = lineDFT.T
+    
+# Next Convert to Quintels to normalize the data
+genePD1T = genePD1.T
+quant1 = genePD1T
+
+quant = genePD1T.quantile([.0,.1, .2, .3, .4, .5, .6, .7, .8, .9, 1.0])
+
+# Logic loop through new dataframe and label values by percents
+Cols = len(quant1.columns)
+Rows = len(quant1)
+p=0
+q=0
+
+while q < Cols:
+    p=0
+    while p < Rows:
+        z = genePD1T.iloc[p][q]
+        ret1 =LabelFunc2(z,q)
+        # Instead of print write to excel cell 
+        quant1.iloc[p][q] = ret1
+        p=p+1
+    q=q+1
+
+quant1T = quant1.T
+
+# Now Generate Heatmap
+# Generate Clustermap but focused on top 20% of releations
+plt.figure(figsize=(10, 6))
+
+ax = plt.axes()
+ax.set_title('AP Sections')
+p1 = sns.heatmap(quant1T, cbar_kws={'label': 'Expression Level (Percentile)'},cmap="vlag")
+display(p1)
+```
+AP Image
+<div><img src="APHeatmap.png" class="img-responsive" alt=""> </div>
+LR Image
+<div><img src="LRHeatmap.png" class="img-responsive" alt=""> </div>
+VD Image
+<div><img src="VDHeatmap.png" class="img-responsive" alt=""> </div>
