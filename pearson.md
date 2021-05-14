@@ -83,6 +83,8 @@ temp = pairwise[[geneID]]
 temp = temp.sort_values(by=geneID,ascending=False)
 print(temp.head(n=20))
 ```
+Results
+<div><img src="P-Data.png" class="img-responsive" alt="" width="150" height="250"> </div>
 
 **Plot Single Gene across all 3 sections
 ```python
@@ -168,8 +170,8 @@ lineDFT.plot(figsize=(20,10),grid=True,xticks=label_list, marker='o', ylabel="Ex
 plt.show()
 ```
 AP Image
-<div><img src="LinePlot.png" class="img-responsive" alt=""> </div>
+<div><img src="APLinePlot.png" class="img-responsive" alt=""> </div>
 LR Image
-<div><img src="LinePlot.png" class="img-responsive" alt=""> </div>
+<div><img src="LRLinePlot.png" class="img-responsive" alt=""> </div>
 VD Image
-<div><img src="LinePlot.png" class="img-responsive" alt=""> </div>
+<div><img src="VDLinePlot.png" class="img-responsive" alt=""> </div>
