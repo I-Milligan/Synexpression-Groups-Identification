@@ -188,7 +188,8 @@ plt.show()
 
 **Generate Heatmaps of the Top 10 Associated genese by distance By Section**
 - Code is replicated for each axis AP, LR and VD
-- The following Function will convert the Decimal Normalized data 1-10 to 0 to 90 for reporting
+- The following Function will convert the Decimal Normalized data 0-10 to 0 to 100 for reporting
+
 ```python
 #Label Gene Section 1-10 based on Quintile value
 def LabelFunc2(xvalue,icolumn):
