@@ -213,7 +213,6 @@ def LabelFunc2(xvalue,icolumn):
 labelsArray = pd.DataFrame()
 plotlist = temp.index.to_list()
 geneList1 = plotlist[:10]
-#geneList1 = ['tgfb2','ptbp3','syngr2a','hoxc4a','NDUFA3','ost4','gltpa','slc1a7a','DHRS2','xrcc6bp1']
 
 # Create new DataFrame to hold values
 genePD1 = pd.DataFrame(columns=APdata.columns)
@@ -259,7 +258,7 @@ while q < Cols:
 quant1T = quant1.T
 
 # Now Generate Heatmap
-# Generate Clustermap but focused on top 20% of releations
+
 plt.figure(figsize=(10, 6))
 
 ax = plt.axes()
@@ -284,7 +283,7 @@ display(p1)
   </tr>
 </table>
 
-**Build a Dendagram of the Entire Genome
+**Build a Dendagram of the Entire Genome**
 ```python
 # Generate Dendrogram
 
@@ -314,7 +313,7 @@ plt.show()
 ```
 Image
 
-**Build CluserMaps of each Axis
+**Build CluserMaps of each Axis**
 - Code is replicated for each axis AP, LR and VD
 
 ```python
@@ -354,7 +353,6 @@ while q < Cols:
 quant1T = quant1.T
 
 # Now Generate Heatmap
-# Generate Clustermap but focused on top 20% of releations
 
 # Build Heatmap
 plt.figure(figsize=(16, 6))
