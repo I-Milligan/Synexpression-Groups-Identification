@@ -169,12 +169,22 @@ label_list = [1,3,5,7,9,11,13,15,17,19,21,23,25,27,29,31,33,35,37,39,41,43,45,47
 lineDFT.plot(figsize=(20,10),grid=True,xticks=label_list, marker='o', ylabel="Expression Levels",title="fgf17 Cluster Expression Levels on AP")
 plt.show()
 ```
-AP Image
-<div><img src="APLinePlot.png" class="img-responsive" alt=""> </div>
-LR Image
-<div><img src="LRLinePlot.png" class="img-responsive" alt=""> </div>
-VD Image
-<div><img src="VDLinePlot.png" class="img-responsive" alt=""> </div>
+<table style="width:100%">
+  <tr>
+    <th>AP Image</th>
+    <th>LR Image</th>
+  </tr>
+  <tr>
+    <td><div><img src="APLinePlot.png" class="img-responsive" alt=""> </div></td>
+    <td><div><img src="LRLinePlot.png" class="img-responsive" alt=""> </div></td>
+  </tr>
+  <tr>
+    <td>"VD Image"</td>
+  </tr>
+  <tr>
+    <td><div><img src="VDLinePlot.png" class="img-responsive" alt=""> </div></td>
+  </tr>
+</table>
 
 **Generate Heatmaps of the Top 10 Associated genese by distance By Section**
 - Code is replicated for each axis AP, LR and VD
@@ -257,9 +267,19 @@ ax.set_title('AP Sections')
 p1 = sns.heatmap(quant1T, cbar_kws={'label': 'Expression Level (Percentile)'},cmap="vlag")
 display(p1)
 ```
-AP Image
-<div><img src="APHeatmap.png" class="img-responsive" alt=""> </div>
-LR Image
-<div><img src="LRHeatmap.png" class="img-responsive" alt=""> </div>
-VD Image
-<div><img src="VDHeatmap.png" class="img-responsive" alt=""> </div>
+<table style="width:100%">
+  <tr>
+    <th>AP Image</th>
+    <th>LR Image</th>
+  </tr>
+  <tr>
+    <td><div><img src="APHeatmap.png" class="img-responsive" alt=""> </div></td>
+    <td><div><img src="LRHeatmap.png" class="img-responsive" alt=""> </div></td>
+  </tr>
+  <tr>
+    <td>"VD Image"</td>
+  </tr>
+  <tr>
+    <td><div><img src="VDHeatmap.png" class="img-responsive" alt=""> </div></td>
+  </tr>
+</table>
