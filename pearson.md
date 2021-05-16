@@ -284,36 +284,6 @@ display(p1)
   </tr>
 </table>
 
-**Build a Dendagram of the Entire Genome**
-```python
-# Generate Dendrogram
-
-from scipy.cluster.hierarchy import cut_tree
-from scipy.cluster.hierarchy import dendrogram, linkage, set_link_color_palette
-#pearcorr = pdist(data,'correlation')
-pearcorr = pairwise
-
-# Plot Dendrogram
-# Setup Plot Size
-from pylab import rcParams
-rcParams['figure.figsize'] = 12, 10
-import seaborn as sns
-sns.set_style("whitegrid")
-
-lnk=linkage(pearcorr, metric='correlation', method='complete')
-
-link_4 = cut_tree(lnk,n_clusters = 4)
-
-pd.crosstab(index=rawdata.index, columns = link_4.T[0],rownames = ['Sec'], colnames = ['gne'])
-fig, ax = plt.subplots(1,1,figsize = (12,10))
-
-#dn = dendrogram(lnk, labels=list(data.columns), leaf_font_size = 8, show_leaf_counts = True)
-dn = dendrogram(lnk, labels=list(rawdataT.columns), leaf_font_size = 8, show_leaf_counts = True)
-plt.axhline(y=1.0, c='k', ls='dashed')
-plt.show()
-```
-Image
-
 **Build CluserMaps of each Axis**
 - Code is replicated for each axis AP, LR and VD
 
@@ -322,6 +292,7 @@ Image
 lineDF = VDdata
 lineDF.index = gene_mapping['gene'].to_list() 
 
+lineDF = lineDF.fillna(0)
 # Transpose ne DataFrame
 lineDFT = lineDF.T
 # Remove Duplicate Columns
