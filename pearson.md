@@ -226,6 +226,9 @@ while i < 10:
     geneIDList = geneList1[i]
     lineDF = lineDF.append(APdata.loc[geneIDList],ignore_index=False)
     i = i+1    
+# Fill Blank Values in the Data Set with the Value of 0
+# This prevents the Blank values from being treated at 100% but 0% representation
+lineDF = lineDF.fillna(0)
 
 # Transpose ne DataFrame
 lineDFT = lineDF.T
@@ -292,6 +295,8 @@ display(p1)
 lineDF = VDdata
 lineDF.index = gene_mapping['gene'].to_list() 
 
+# Fill Blank Values in the Data Set with the Value of 0
+# This prevents the Blank values from being treated at 100% but 0% representation
 lineDF = lineDF.fillna(0)
 # Transpose ne DataFrame
 lineDFT = lineDF.T
