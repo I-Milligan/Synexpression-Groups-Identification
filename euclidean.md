@@ -178,3 +178,4 @@ LR Image
 VD Image
 <div><img src="LinePlot.png" class="img-responsive" alt=""> </div>
 
+<a href="https://github.com/I-Milligan/Synexpression-Groups-Identification/blob/gh-pages/EuclideanDistanceCalc.ipynb">Link to Source Code</a>
