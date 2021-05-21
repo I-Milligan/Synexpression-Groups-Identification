@@ -87,6 +87,8 @@ temp = pairwise[["fgf17"]]
 temp = temp.sort_values(by='fgf17')
 print(temp.head(n=20))
 ```
+Results
+<div><img src="EC - Data.png" class="img-responsive" alt="" width="150" height="250"> </div>
 
 **Plot Single Gene across all 3 sections**
 ```python
@@ -129,7 +131,7 @@ lineDFT.plot(figsize=(20,10),grid=True,xticks=label_list,color=["blue","green","
 plt.show()
 ```
 Image
-<div><img src="LinePlot.png" class="img-responsive" alt=""> </div>
+<div><img src="EC - LinePlot.png" class="img-responsive" alt=""> </div>
 
 **Plot Top 10 Associated genese by distance By Section**
 - Code is replicated for each section AP, LR and VD
@@ -171,11 +173,22 @@ label_list = [1,3,5,7,9,11,13,15,17,19,21,23,25,27,29,31,33,35,37,39,41,43,45,47
 lineDFT.plot(figsize=(20,10),grid=True,xticks=label_list, marker='o', ylabel="Expression Levels",title="fgf17 Cluster Expression Levels on AP")
 plt.show()
 ```
-AP Image
-<div><img src="LinePlot.png" class="img-responsive" alt=""> </div>
-LR Image
-<div><img src="LinePlot.png" class="img-responsive" alt=""> </div>
-VD Image
-<div><img src="LinePlot.png" class="img-responsive" alt=""> </div>
+Images
+<table style="width:100%">
+  <tr>
+    <th>AP Image</th>
+    <th>LR Image</th>
+  </tr>
+  <tr>
+    <td><div><img src="EC - APLinePlot.png" class="img-responsive" alt=""> </div></td>
+    <td><div><img src="EC - LRLinePlot.png" class="img-responsive" alt=""> </div></td>
+  </tr>
+  <tr>
+    <td>"VD Image"</td>
+  </tr>
+  <tr>
+    <td><div><img src="EC - VDLinePlot.png" class="img-responsive" alt=""> </div></td>
+  </tr>
+</table>
 
 <a href="https://github.com/I-Milligan/Synexpression-Groups-Identification/blob/gh-pages/EuclideanDistanceCalc.ipynb">Link to Source Code</a>
