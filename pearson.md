@@ -188,10 +188,10 @@ plt.show()
 
 **Generate Heatmaps of the Top 10 Associated genese by distance By Section**
 - Code is replicated for each axis AP, LR and VD
-- The following Function will convert the Decimal Normalized data 0-10 to 0 to 100 for reporting
+- The following Function will convert the Decile Normalized data 0-10 to 0 to 100 for reporting
 
 ```python
-#Label Gene Section 1-10 based on Quintile value
+#Label Gene Section 1-10 based on Decile value
 def LabelFunc2(xvalue,icolumn):
     if(xvalue<=quant.iloc[0][icolumn]): retvalue = "0"
     elif(xvalue<=quant.iloc[1][icolumn]): retvalue = "10"
@@ -329,9 +329,9 @@ while q < Cols:
 
 quant1T = quant1.T
 
-# Now Generate Heatmap
+# Now Generate Cluster map
 
-# Build Heatmap
+# Build Cluster map
 plt.figure(figsize=(16, 6))
 p1 = sns.clustermap(quant1T,cmap="Reds",col_cluster=False)
 p1.fig.suptitle("VD Axis")
