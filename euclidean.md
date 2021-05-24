@@ -33,7 +33,7 @@ gene_mapping.index = gene_mapping['ENSEMBL']
 gene_mapping = gene_mapping[gene_mapping.columns[1:2]]
 gene_mapping = gene_mapping.fillna(0)
 
-# now loop through the mapping and convert any gene names = 0 to the ensemble
+# now loop through the mapping and convert any gene names = 0 to the ensmble
 for row_num, value in enumerate(gene_mapping.index.values):
     if(gene_mapping.iloc[row_num][0]==0):
         gene_mapping.iloc[row_num,0] = value 
