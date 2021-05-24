@@ -166,7 +166,7 @@ for col_num, value in enumerate(lineDFT.index.values):
         
 # Set Tick Labels        
 label_list = [1,3,5,7,9,11,13,15,17,19,21,23,25,27,29,31,33,35,37,39,41,43,45,47,49,51]
-lineDFT.plot(figsize=(20,10),grid=True,xticks=label_list, marker='o', ylabel="Expression Levels",title="fgf17 Cluster Expression Levels on AP")
+lineDFT.plot(figsize=(20,10),grid=True,xticks=label_list, marker='o', ylabel="Expression Levels",title=geneID+" Cluster Expression Levels on AP")
 plt.show()
 ```
 <table style="width:100%">
