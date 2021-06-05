@@ -1,4 +1,4 @@
-## Rank changes between Pearson's Correlation and Euclidean distance
+## Rank changes between Pearson's correlation and Euclidean distance
 
 **The code below was modified based on a solution provided in a response on 'Stackoverflow' to the question:**
 <p>
