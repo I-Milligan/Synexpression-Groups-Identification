@@ -22,4 +22,4 @@ Once synexpression clusters were identified, they were put through the Biomart d
 [Link to Code Used](fisher.md)
 
 ### Rank changes between Pearson's Correlation and Euclidean distance
-[Link to Code Usded](rankchange.md)
+[Link to Code Used](rankchange.md)
