@@ -1,7 +1,9 @@
 ## Rank changes between Pearson's Correlation and Euclidean distance
 
 **The code below was modified based on a solution provided in a response on 'Stackoverflow' to the question:**
-Simplest way to plot changes in ranking between two ordered lists in R?
+<p>
+  <em>Simplest way to plot changes in ranking between two ordered lists in R?</em>
+</p>
 
 [Link to response can be found here](https://stackoverflow.com/questions/25781284/simplest-way-to-plot-changes-in-ranking-between-two-ordered-lists-in-r)
 
