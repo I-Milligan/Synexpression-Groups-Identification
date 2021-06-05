@@ -1,11 +1,11 @@
 ## Rank changes between Pearson's Correlation and Euclidean distance
 
-** The code below was modified based on a solution provided in a response on 'Stackoverflow' to the question:**
+**The code below was modified based on a solution provided in a response on 'Stackoverflow' to the question:**
 Simplest way to plot changes in ranking between two ordered lists in R?
 
 [Link to response can be found here](https://stackoverflow.com/questions/25781284/simplest-way-to-plot-changes-in-ranking-between-two-ordered-lists-in-r)
 
-** My Code is Below **
+**My Code is Below**
 ```R
 plotRanks <- function(a, b, labels.offset=0.1, arrow.len=0.1)
 {
@@ -43,3 +43,6 @@ mydata_all <- read.csv(file='/Users/irismilligan/Documents/RScripts/output2.csv'
 
 plotRanks(mydata_all[,1], mydata_all[,2])
 ```
+
+Results
+<div><img src="RankChange.png" class="img-responsive" alt="" width="150" height="250"> </div>
