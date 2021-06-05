@@ -47,4 +47,4 @@ plotRanks(mydata_all[,1], mydata_all[,2])
 ```
 
 Results
-<div><img src="RankChange.png" class="img-responsive" alt="" width="150" height="250"> </div>
+<div><img src="RankChange.png" class="img-responsive" alt="" width="450" height="650"> </div>
