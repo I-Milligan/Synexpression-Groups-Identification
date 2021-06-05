@@ -18,5 +18,5 @@ Euclidean Distance is sensitive to scaling and differences in average expression
 [Link to Code Used](https://i-milligan.github.io/Synexpression-Groups-Identification/euclidean)
 
 Once synexpression clusters were identified, they were put through the Biomart database to determine each gene’s chromosomal location. The probability of genes being located on the same chromosome was calculated utilizing the Fisher’s exact test (p-value of ≤ 0.05) to determine if there are non-random associations between two variables.
-### Fisher Test
+### Fisher's Exact Test
 [Link to Code Used](fisher.md)
